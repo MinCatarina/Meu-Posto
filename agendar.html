@@ -1,0 +1,14 @@
+<!DOCTYPE html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Agendar · Meu Posto</title><link rel="stylesheet" href="style.css"></head>
+<body data-page="agendar"><a class="skip" href="#main">Ir para o conteúdo</a>
+<header><a class="logo" href="index.html">Meu Posto</a>
+<div class="tools" role="group" aria-label="Ajustes de leitura"><button id="menos" aria-label="Diminuir letra">A−</button> <button id="mais" aria-label="Aumentar letra">A+</button> <button id="contraste">Alto contraste</button></div>
+<nav aria-label="Etapas"><ol><li>1. Remédio</li><li>2. Postos</li><li aria-current="step">3. Agendar</li><li>4. Confirmação</li></ol></nav></header><main id="main">
+<h1>Agende sua ida</h1><p>Posto escolhido: <b id="posto"></b></p>
+<section class="card check" aria-labelledby="h-docs"><h2 id="h-docs">1. Separe os documentos</h2><div id="docs"></div>
+<progress id="prog" aria-label="Documentos separados"></progress><p id="progtxt" aria-live="polite"></p></section>
+<h2>2. Escolha dia e horário</h2>
+<form id="form" novalidate><label for="nome">Nome completo</label><input id="nome" autocomplete="name"><p id="e-nome" class="erro" role="alert"></p>
+<label for="dia">Dia</label><select id="dia"></select><p id="e-dia" class="erro" role="alert"></p>
+<label for="hora">Horário</label><select id="hora"><option value="">Escolha o horário</option><option>8h</option><option>10h</option><option>14h</option><option>16h</option></select><p id="e-hora" class="erro" role="alert"></p>
+<button type="submit">Confirmar agendamento</button></form>
+</main><footer><p>Protótipo acadêmico · CitizenTech · ODS 3 – Saúde e Bem-Estar. Dados simulados.</p></footer><script src="data.js"></script><script src="app.js"></script></body></html>
