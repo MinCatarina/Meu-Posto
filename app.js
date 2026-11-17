@@ -1,5 +1,5 @@
 const $=s=>document.querySelector(s), get=k=>sessionStorage.getItem(k), set=(k,v)=>sessionStorage.setItem(k,v);
-// Acessibilidade: fonte e contraste (lembrados entre as páginas)
+
 let fs=+(localStorage.getItem('fs')||125);
 const aplica=()=>{document.documentElement.style.setProperty('--fs',fs+'%');document.body.classList.toggle('contraste',localStorage.getItem('c')==='1')};
 aplica();
@@ -16,6 +16,7 @@ if(pg==='inicio'){ // Busca do remédio
     if(!$('#med').value){erro($('#erro'),'Escolha um remédio para continuar.');$('#med').focus();return}
     set('med',$('#med').value);location.href='resultado.html'};
 }
+
 if(pg==='resultado'){ // Disponibilidade por posto, com filtro
   const med=get('med'); if(!med){location.href='index.html'}
   $('#titulo').textContent='Onde encontrar: '+med;
@@ -29,6 +30,7 @@ if(pg==='resultado'){ // Disponibilidade por posto, com filtro
   $('#so').onchange=lista;lista();
   $('#lista').onclick=e=>{const id=e.target.dataset.id;if(id){set('posto',POSTOS.find(p=>p.id==id).nome);location.href='agendar.html'}};
 }
+
 if(pg==='agendar'){ // Checklist de documentos + agendamento
   if(!get('posto'))location.href='index.html';
   $('#posto').textContent=get('posto');
@@ -45,6 +47,7 @@ if(pg==='agendar'){ // Checklist de documentos + agendamento
     set('nome',$('#nome').value.trim());set('dia',$('#dia').value);set('hora',$('#hora').value);
     set('prot','SP-'+Math.floor(100000+Math.random()*900000));location.href='confirmacao.html'};
 }
+
 if(pg==='confirmacao'){ // Resumo e protocolo
   if(!get('prot'))location.href='index.html';
   $('#resumo').innerHTML=`<li>Nome: <b>${get('nome')}</b></li><li>Remédio: <b>${get('med')}</b></li><li>Posto: <b>${get('posto')}</b></li><li>Dia: <b>${get('dia')}, às ${get('hora')}</b></li>`;
